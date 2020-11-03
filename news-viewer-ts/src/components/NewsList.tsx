@@ -25,7 +25,7 @@ type NewsListProps = {
 const NewsList = ({ category }: NewsListProps) => {
   const [loading, response, error] = usePromise(() => {
     const query = category === "all" ? "" : `&category=${category}`
-    return axios.get(`http://newsapi.org/v2/top-headlines?country=kr${query}&apiKey=557026fef949481eb77b4536e35d21ac`)
+    return axios.get(`http://newsapi.org/v2/top-headlines?country=kr${query}`)
   }, [category]);
   if (loading) return <NewsListBlock>대기 중...</NewsListBlock>
 
